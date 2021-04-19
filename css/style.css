@@ -1,0 +1,458 @@
+/*
+===============Fonts===============
+*/
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Crete+Round&display=swap');
+
+/*
+===============Variables===============
+*/
+
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: rgb(186, 150, 105);
+  --clr-primary-2: rgb(186, 150, 100);
+  --clr-primary-3: rgb(186, 150, 120);
+  --clr-primary-4: rgb(186, 150, 110);
+  /* primary/main color */
+  --clr-primary-5:rgb(163, 108, 40);
+  /* shadows of primary color */
+  --clr-primary-6: rgb(240, 133, 0);
+  --clr-primary-7: rgb(240, 133, 120);
+  --clr-primary-8: rgb(240, 133, 100);
+  --clr-primary-9: rgb(240, 133, 40);
+  --clr-primary-10: rgb(240, 133, 20);
+  /* darkest color options */
+  --clr-sec-1: rgb(77, 78, 67);
+  --clr-sec-2: rgb(82, 85, 64);
+  --clr-sec-3: rgb(56, 58, 45);
+  --clr-sec-4: rgb(43, 44, 34);
+  /* other color */
+  --clr-white: #fff;
+  --clr-gold: #c59d5f;
+  --clr-black: #000;
+  /* custom */
+  --ff-primary: 'Arvo', serif;
+  --ff-secondary: 'Crete Round', serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.25rem;
+  --radius: 0.5rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+  --border-color: rgb(240, 201, 127), rgb(99,61,43);
+}
+/*
+===============Global Styles===============
+*/
+html {
+  scroll-behavior: smooth;
+}
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--ff-secondary);
+  background: var(--clr-black);
+  color: var(--clr-white);
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+img:not(.logo) {
+  width: 100%;
+}
+img {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: var(--ff-primary);
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 0.875rem;
+}
+p {
+  margin-bottom: 1.25rem;
+  color: var(--clr-grey-5);
+}
+input {
+  padding: 10px;
+  background: transparent;
+  border: 2px solid var(--clr-white);
+  border-radius: var(--radius);
+  text-transform: capitalize;
+  margin-right: 4px;
+}
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  body {
+    font-size: 1rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+}
+/*  global classes */
+
+.btn {
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--clr-white);
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid var(--clr-white);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
+}
+.btn:hover {
+  color: var(--clr-black);
+  background: var(--clr-white);
+}
+
+.btn-sec {
+  text-transform: uppercase;
+  background: var(--clr-gold);
+  color: var(--clr-white);
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid var(--clr-white);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
+  margin-left: 4px;
+}
+.btn-sec:hover {
+  color: var(--clr-white);
+  background: transparent;
+}
+/* section */
+.section {
+  margin: 0 auto;
+  width: 100%;
+}
+/*
+===============content-box===============
+*/
+.content-box {
+  width: 50%;
+  padding: 20px;
+}
+
+/*
+===============navbar===============
+*/
+#navbar {
+  background-color: transparent;
+  padding: 20px 40px;
+}
+.nav-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.logo {
+  font-size: 30px;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+  display: none;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+/* nav-icon */
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: var(--clr-gold);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}
+/*
+===============container-one===============
+*/
+.container-one {
+  height: 100vh;
+  background: url(/img/main2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.one {
+  position: absolute;
+  bottom: 40%;
+}
+.container-one::before {
+  content: "";
+  background: 
+  linear-gradient(113deg, rgba(31,4,10,0.4) 15%, rgba(236,236,236,0.2) 88%);;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+/*
+===============container-two===============
+*/
+.container-two {
+  height: 60vh;
+}
+.row {
+  max-width: 660px;
+  margin: auto;
+  padding: 50px 0;
+  height: 100%;
+  justify-content: center;
+}
+.col {
+  float: left;
+  width: 45%;
+  align-content: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.col p {
+  line-height: 1.7;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/*
+===============container-three===============
+*/
+.container-three {
+  height: 60vh;
+}
+.row {
+  max-width: 660px;
+  margin: auto;
+  padding: 50px 0;
+  height: 100%;
+  justify-content: center;
+}
+.box {
+  float: left;
+  width: 30%;
+  align-content: center;
+  height: 100%;
+}
+/*
+=============== container-four ===============
+*/
+.container-four {
+  height: 60vh;
+  background: url(/img/s4.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  width: 100%;
+}
+.two {
+  margin: auto;
+  width: 660px;
+  padding: 80px 0;
+}
+.two hr {
+  width: 30px;
+  margin-bottom: 9px;
+  display: inline-block;
+  height: 5px;
+  background-color: var(--clr-white);
+}
+/*
+=============== container-five ===============
+*/
+.container-six {
+  height: 60vh;
+  background: url(/img/s3.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  padding: 40px 20px;
+}
+.form {
+  position:absolute;
+  bottom: 35%;
+  left: 4%;
+}
+/*
+=============== footer ===============
+*/
+#footer {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 18px;
+  letter-spacing: var(--spacing);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+===============Menu===============
+*//*
+===============Menu===============
+*//*
+===============Menu===============
+*//*
+===============Menu===============
+*//*
+===============Menu===============
+*/
+/* 
+==============media query==========
+*/
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
+
+@media screen and (min-width: 768px) {}
